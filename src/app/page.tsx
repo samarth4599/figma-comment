@@ -1,9 +1,10 @@
 import ThemeToggle from "@/components/atoms/ThemeToggle";
 import UserPin from "@/components/atoms/UserPin";
+import FigmaBox from "@/components/molecules/FigmaBox";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-12 bg-white dark:bg-black">
+    <main className="flex min-h-screen flex-col items-center justify-between p-12 bg-slate-100 dark:bg-black">
       <header className="flex flex-col items-center">
         <h1 className="text-2xl font-bold text-black dark:text-white">
           Tap anywhere in the below box to add a comment
@@ -12,7 +13,8 @@ export default function Home() {
           <ThemeToggle />
         </aside>
       </header>
-      <UserPin />
+      {/* <UserPin /> */}
+      <FigmaBox />
     </main>
   );
 }
