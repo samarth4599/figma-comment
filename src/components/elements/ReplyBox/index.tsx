@@ -16,6 +16,7 @@ import {
 import AudioRecorder from "../AudioRecorder";
 import { useAudioRecorder } from "@/providers/audioProvider";
 import SendButton from "@/components/atoms/SendButton";
+import { useAudioMessage } from "@/providers/messageProvider";
 
 const ReplyBox = (style?: any) => {
   const [text, setText] = useState<string>("");
@@ -23,7 +24,8 @@ const ReplyBox = (style?: any) => {
   const [showAudioBox, setShowAudioBox] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState<TSelectables>();
 
-  const { audioChunks } = useAudioRecorder();
+  const { audioChunks, reset } = useAudioRecorder();
+  const { addMessage } = useAudioMessage();
 
   const handleTextChange = (e: any) => {
     const newText = e.target.value;
@@ -43,6 +45,16 @@ const ReplyBox = (style?: any) => {
       setShowMentionBox(false);
     }
   }, [selectedItem]);
+
+  const onSend = () => {
+    if (text || audioChunks.length) {
+      addMessage(text, audioChunks);
+      reset();
+      setText("");
+      setShowAudioBox(false);
+      setSelectedItem(undefined);
+    }
+  };
 
   return (
     <div
@@ -69,10 +81,7 @@ const ReplyBox = (style?: any) => {
           <VideoCameraIcon className=" h-4 w-4" />
           <ComputerDesktopIcon className=" h-4 w-4" />
         </div>
-        <SendButton
-          enabled={!!text || !!audioChunks.length}
-          onClick={() => {}}
-        />
+        <SendButton enabled={!!text || !!audioChunks.length} onClick={onSend} />
       </div>
       {showMentionBox && (
         <div className=" absolute top-12 z-50">

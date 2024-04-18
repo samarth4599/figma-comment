@@ -14,7 +14,7 @@ interface AudioRecorderContextType {
   startRecording: () => void;
   reset: () => void;
   stopRecording: () => void;
-  playRecording: () => void;
+  playRecording: (audioChunks: Blob[]) => void;
 }
 
 const AudioRecorderContext = createContext<AudioRecorderContextType | null>(
@@ -78,9 +78,9 @@ export const AudioRecorderProvider: React.FC<{ children: ReactNode }> = ({
     }
   };
 
-  const playRecording = () => {
-    if (audioChunks.length > 0) {
-      const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
+  const playRecording = (_audioChunks: Blob[]) => {
+    if (_audioChunks.length > 0) {
+      const audioBlob = new Blob(_audioChunks, { type: "audio/wav" });
       const url = URL.createObjectURL(audioBlob);
       const audio = new Audio(url);
       audio

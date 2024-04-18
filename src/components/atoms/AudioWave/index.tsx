@@ -1,8 +1,8 @@
 "use client";
-import React, { useEffect, useMemo, useState } from "react";
-import { IAudioWaveProps } from "./types";
-import Wave from "../Wave";
 import { useAudioRecorder } from "@/providers/audioProvider";
+import React, { useEffect, useMemo, useState } from "react";
+import WaveMultiple from "../WaveMultiple";
+import { IAudioWaveProps } from "./types";
 
 const AudioWave: React.FC<IAudioWaveProps> = ({
   duration = 500,
@@ -28,17 +28,15 @@ const AudioWave: React.FC<IAudioWaveProps> = ({
 
   const waveSize = useMemo(() => pills * 3.7 * 2 - 2, [pills]);
 
-  const waveComponents = useMemo(
-    () =>
-      Array.from({ length: pills }, (_, index) => (
-        <Wave key={index} index={index} loop={loop} duration={duration} />
-      )),
-    [loop, recording]
-  );
-
   return (
     <div style={{ minWidth: waveSize, ...style }} className="flex gap-[2px]">
-      {waveComponents}
+      <WaveMultiple
+        pills={pills}
+        loop={loop}
+        duration={duration}
+        recording={recording}
+        hasReset={hasReset}
+      />
     </div>
   );
 };

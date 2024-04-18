@@ -2,11 +2,18 @@
 import { getRandomWaveHeight } from "@/utils/sizeUtils";
 import { useEffect, useMemo, useState } from "react";
 import { IWaveProps } from "./types";
-import { useAudioRecorder } from "@/providers/audioProvider";
 
-const Wave: React.FC<IWaveProps> = ({ index, loop, duration, style }) => {
-  const [isTransformed, setIsTransformed] = useState<boolean>(false);
-  const { recording, hasReset } = useAudioRecorder();
+const Wave: React.FC<IWaveProps> = ({
+  index,
+  loop,
+  duration,
+  style,
+  recording,
+  hasReset,
+  defaultTransformed = false,
+}) => {
+  const [isTransformed, setIsTransformed] =
+    useState<boolean>(defaultTransformed);
   const randomHeight = useMemo(() => getRandomWaveHeight(), [loop]);
 
   useEffect(() => {
@@ -26,10 +33,10 @@ const Wave: React.FC<IWaveProps> = ({ index, loop, duration, style }) => {
   }, [index, randomHeight, recording, hasReset]);
 
   useEffect(() => {
-    if (loop || hasReset) {
+    if ((loop || hasReset) && !defaultTransformed) {
       setIsTransformed(false);
     }
-  }, [loop, hasReset]);
+  }, [loop, hasReset, defaultTransformed]);
 
   return (
     <div

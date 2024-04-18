@@ -3,6 +3,7 @@ import UserPin from "@/components/atoms/UserPin";
 import AudioRecorder from "@/components/elements/AudioRecorder";
 import FigmaBox from "@/components/molecules/FigmaBox";
 import { AudioRecorderProvider } from "@/providers/audioProvider";
+import { AudioMessageProvider } from "@/providers/messageProvider";
 
 export default function Home() {
   return (
@@ -16,9 +17,11 @@ export default function Home() {
         </aside>
       </header>
       {/* <UserPin /> */}
-      <AudioRecorderProvider>
-        <FigmaBox />
-      </AudioRecorderProvider>
+      <AudioMessageProvider>
+        <AudioRecorderProvider>
+          <FigmaBox />
+        </AudioRecorderProvider>
+      </AudioMessageProvider>
     </main>
   );
 }

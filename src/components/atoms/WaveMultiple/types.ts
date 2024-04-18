@@ -1,9 +1,9 @@
-export interface IWaveProps {
-  index: number;
+export interface WaveMultipleProps {
+  pills: number;
   loop: boolean;
   defaultTransformed?: boolean;
   duration: number;
-  style?: any;
   recording: boolean;
   hasReset: boolean;
+  style?: any;
 }

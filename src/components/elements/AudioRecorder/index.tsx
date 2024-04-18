@@ -8,13 +8,17 @@ import { useAudioRecorder } from "@/providers/audioProvider";
 import React from "react";
 
 const AudioRecorder: React.FC<{ style?: any }> = ({ style }) => {
-  const { recording } = useAudioRecorder();
+  const { recording, audioChunks } = useAudioRecorder();
   return (
     <div
       style={style}
       className="flex justify-between items-center bg-[#F4F5F6] p-2 gap-2 rounded-full"
     >
-      {recording ? <AudioCancel icon="cross" /> : <AudioPlay />}
+      {recording ? (
+        <AudioCancel icon="cross" />
+      ) : (
+        <AudioPlay audioChunks={audioChunks} />
+      )}
       <AudioWave pills={25} />
       <AudioTimer />
       {recording ? <AudioSave /> : <AudioCancel icon="delete" />}
