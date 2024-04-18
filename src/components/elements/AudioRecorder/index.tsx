@@ -7,10 +7,13 @@ import AudioWave from "@/components/atoms/AudioWave";
 import { useAudioRecorder } from "@/providers/audioProvider";
 import React from "react";
 
-const AudioRecorder: React.FC = () => {
+const AudioRecorder: React.FC<{ style?: any }> = ({ style }) => {
   const { recording } = useAudioRecorder();
   return (
-    <div className="flex justify-between items-center bg-[#F4F5F6] p-2 gap-2 rounded-full">
+    <div
+      style={style}
+      className="flex justify-between items-center bg-[#F4F5F6] p-2 gap-2 rounded-full"
+    >
       {recording ? <AudioCancel icon="cross" /> : <AudioPlay />}
       <AudioWave pills={25} />
       <AudioTimer />

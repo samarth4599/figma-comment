@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { IWaveProps } from "./types";
 import { useAudioRecorder } from "@/providers/audioProvider";
 
-const Wave: React.FC<IWaveProps> = ({ index, loop, duration }) => {
+const Wave: React.FC<IWaveProps> = ({ index, loop, duration, style }) => {
   const [isTransformed, setIsTransformed] = useState<boolean>(false);
   const { recording, hasReset } = useAudioRecorder();
   const randomHeight = useMemo(() => getRandomWaveHeight(), [loop]);
@@ -40,6 +40,7 @@ const Wave: React.FC<IWaveProps> = ({ index, loop, duration }) => {
         background: isTransformed ? "#625DF5" : "#B1B5C3",
         transition:
           "width 0.5s, height 0.5s, border-radius 0.5s, background-color 0.5s",
+        ...style,
       }}
     ></div>
   );

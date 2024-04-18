@@ -7,6 +7,7 @@ import { useAudioRecorder } from "@/providers/audioProvider";
 const AudioWave: React.FC<IAudioWaveProps> = ({
   duration = 500,
   pills = 10,
+  style,
 }) => {
   const [loop, setLoop] = useState(false);
   const { recording, hasReset } = useAudioRecorder();
@@ -36,7 +37,7 @@ const AudioWave: React.FC<IAudioWaveProps> = ({
   );
 
   return (
-    <div style={{ minWidth: waveSize }} className="flex gap-[2px]">
+    <div style={{ minWidth: waveSize, ...style }} className="flex gap-[2px]">
       {waveComponents}
     </div>
   );

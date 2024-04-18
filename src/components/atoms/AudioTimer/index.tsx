@@ -3,7 +3,7 @@ import { useAudioRecorder } from "@/providers/audioProvider";
 import { formatTime } from "@/utils/timeUtils";
 import React, { useEffect, useState } from "react";
 
-const AudioTimer: React.FC = () => {
+const AudioTimer: React.FC<{ style?: any }> = ({ style }) => {
   const { recording, hasReset } = useAudioRecorder();
   const [recordTime, setRecordTime] = useState<number>(0);
 
@@ -30,7 +30,9 @@ const AudioTimer: React.FC = () => {
   }, [hasReset]);
 
   return (
-    <span className="text-[#777E90] text-sm">{formatTime(recordTime)}</span>
+    <span style={style} className="text-[#777E90] text-sm">
+      {formatTime(recordTime)}
+    </span>
   );
 };
 

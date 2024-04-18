@@ -8,7 +8,7 @@ import { useTheme } from "next-themes";
 import { getPriorityColor } from "@/utils/colorUtils";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/16/solid";
 
-const PriorityStatus: React.FC = () => {
+const PriorityStatus: React.FC<{ style?: any }> = ({ style }) => {
   const [visibility, setVisibility] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState<TSelectables>();
   const { theme } = useTheme();
@@ -19,7 +19,7 @@ const PriorityStatus: React.FC = () => {
   );
 
   return (
-    <div className="relative">
+    <div style={style} className="relative">
       <button
         style={{
           backgroundColor: colors.bg,

@@ -1,9 +1,9 @@
 import { ChevronDownIcon, CircleStackIcon } from "@heroicons/react/16/solid";
 import React from "react";
 
-const ProgressStatus: React.FC = () => {
+const ProgressStatus: React.FC<{ style?: any }> = ({ style }) => {
   return (
-    <div className="relative">
+    <div style={style} className="relative">
       <div className="flex bg-[#E7E8FA] text-[#625DF5] dark:bg-[#625DF5] dark:text-[#E7E8FA] flex-row justify-center items-center max-h-8 p-2 gap-[4px] rounded-2xl">
         <CircleStackIcon className=" h-3 w-3" />
         <span className=" text-xs">Open</span>

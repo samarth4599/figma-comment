@@ -17,7 +17,7 @@ import AudioRecorder from "../AudioRecorder";
 import { useAudioRecorder } from "@/providers/audioProvider";
 import SendButton from "@/components/atoms/SendButton";
 
-const ReplyBox = () => {
+const ReplyBox = (style?: any) => {
   const [text, setText] = useState<string>("");
   const [showMentionBox, setShowMentionBox] = useState<boolean>(false);
   const [showAudioBox, setShowAudioBox] = useState<boolean>(false);
@@ -45,15 +45,20 @@ const ReplyBox = () => {
   }, [selectedItem]);
 
   return (
-    <div className=" relative w-80 p-4 rounded-xl bg-white dark:bg-[#141416] border border-[#F4F5F6] dark:border-[#303034]">
+    <div
+      style={style}
+      className=" relative w-full p-4 rounded-xl bg-white dark:bg-[#141416] border border-[#F4F5F6] dark:border-[#303034]"
+    >
       <TextArea
         value={text}
         placeholder="Comment or type @ to add others"
         onChange={handleTextChange}
       />
-      {showAudioBox && <AudioRecorder />}
-      <Divider />
-      <div className="mt-2 flex justify-between items-center">
+      {showAudioBox && (
+        <AudioRecorder style={{ marginTop: 10, marginBottom: 10 }} />
+      )}
+      <Divider style={{ marginTop: 6, marginBottom: 10 }} />
+      <div className=" flex justify-between items-center">
         <div className="flex items-center gap-2 text-[#B1B5C3] dark:text-[#91919C]">
           <FaceSmileIcon className=" h-4 w-4" />
           <PaperClipIcon className=" h-4 w-4" />

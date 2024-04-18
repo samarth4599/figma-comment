@@ -6,6 +6,7 @@ const SelectableList: React.FC<ISelectableList> = ({
   items,
   setSelectedItem,
   setVisibility,
+  style,
 }) => {
   const toggleRef = useRef<HTMLDivElement>(null);
 
@@ -29,6 +30,7 @@ const SelectableList: React.FC<ISelectableList> = ({
 
   return (
     <div
+      style={style}
       ref={toggleRef}
       className="flex flex-col items-start w-48 border border-[#E6E8EC] dark:border-[#303034] bg-white dark:bg-[#141416] rounded-xl p-2 gap-3"
     >

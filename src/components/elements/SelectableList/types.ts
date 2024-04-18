@@ -6,4 +6,5 @@ export interface ISelectableList {
     React.SetStateAction<TSelectables | undefined>
   >;
   setVisibility: React.Dispatch<React.SetStateAction<boolean>>;
+  style?: any;
 }
