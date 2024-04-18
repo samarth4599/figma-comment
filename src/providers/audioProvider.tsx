@@ -44,7 +44,7 @@ export const AudioRecorderProvider: React.FC<{ children: ReactNode }> = ({
   const reset = () => {
     setHasReset(true);
     stopRecording();
-    setAudioChunks([]);
+    setTimeout(() => setAudioChunks([]), 200);
   };
 
   const startRecording = async () => {

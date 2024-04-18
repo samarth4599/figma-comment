@@ -15,6 +15,7 @@ import {
 } from "@heroicons/react/24/outline";
 import AudioRecorder from "../AudioRecorder";
 import { useAudioRecorder } from "@/providers/audioProvider";
+import SendButton from "@/components/atoms/SendButton";
 
 const ReplyBox = () => {
   const [text, setText] = useState<string>("");
@@ -22,7 +23,7 @@ const ReplyBox = () => {
   const [showAudioBox, setShowAudioBox] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState<TSelectables>();
 
-  const { audioChunks, recording } = useAudioRecorder();
+  const { audioChunks } = useAudioRecorder();
 
   const handleTextChange = (e: any) => {
     const newText = e.target.value;
@@ -44,7 +45,7 @@ const ReplyBox = () => {
   }, [selectedItem]);
 
   return (
-    <div className=" relative w-80 h-28 p-4 rounded-xl bg-white dark:bg-[#141416] border border-[#F4F5F6] dark:border-[#303034]">
+    <div className=" relative w-80 p-4 rounded-xl bg-white dark:bg-[#141416] border border-[#F4F5F6] dark:border-[#303034]">
       <TextArea
         value={text}
         placeholder="Comment or type @ to add others"
@@ -63,6 +64,10 @@ const ReplyBox = () => {
           <VideoCameraIcon className=" h-4 w-4" />
           <ComputerDesktopIcon className=" h-4 w-4" />
         </div>
+        <SendButton
+          enabled={!!text || !!audioChunks.length}
+          onClick={() => {}}
+        />
       </div>
       {showMentionBox && (
         <div className=" absolute top-12 z-50">
