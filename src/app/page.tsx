@@ -16,9 +16,8 @@ export default function Home() {
         </aside>
       </header>
       {/* <UserPin /> */}
-      {/* <FigmaBox /> */}
       <AudioRecorderProvider>
-        <AudioRecorder />
+        <FigmaBox />
       </AudioRecorderProvider>
     </main>
   );

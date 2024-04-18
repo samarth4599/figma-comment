@@ -10,6 +10,7 @@ import React, {
 interface AudioRecorderContextType {
   recording: boolean;
   hasReset: boolean;
+  audioChunks: Blob[];
   startRecording: () => void;
   reset: () => void;
   stopRecording: () => void;
@@ -89,6 +90,7 @@ export const AudioRecorderProvider: React.FC<{ children: ReactNode }> = ({
   };
 
   const value: AudioRecorderContextType = {
+    audioChunks,
     reset,
     hasReset,
     recording,

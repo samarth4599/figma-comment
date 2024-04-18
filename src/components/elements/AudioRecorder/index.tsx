@@ -12,7 +12,7 @@ const AudioRecorder: React.FC = () => {
   return (
     <div className="flex justify-between items-center bg-[#F4F5F6] p-2 gap-2 rounded-full">
       {recording ? <AudioCancel icon="cross" /> : <AudioPlay />}
-      <AudioWave pills={30} />
+      <AudioWave pills={25} />
       <AudioTimer />
       {recording ? <AudioSave /> : <AudioCancel icon="delete" />}
     </div>

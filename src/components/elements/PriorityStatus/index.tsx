@@ -26,20 +26,20 @@ const PriorityStatus: React.FC = () => {
           color: colors.color,
         }}
         onClick={() => setVisibility(true)}
-        className="flex flex-row justify-center items-center max-h-8 p-2 gap-[10px] rounded-2xl"
+        className="flex flex-row justify-center items-center max-h-8 p-2 gap-[8px] rounded-2xl"
       >
         <FlagIcon className=" h-4 w-4" />
         {!!selectedItem && (
           <span className=" text-xs">{selectedItem?.name}</span>
         )}
         {visibility ? (
-          <ChevronUpIcon className=" h-3 w-3" />
+          <ChevronUpIcon className=" h-4 w-4" />
         ) : (
-          <ChevronDownIcon className=" h-3 w-3" />
+          <ChevronDownIcon className=" h-4 w-4" />
         )}
       </button>
       {visibility && (
-        <div className=" absolute top-9">
+        <div className=" absolute top-9 z-50">
           <SelectableList
             items={priorities}
             setSelectedItem={setSelectedItem}

@@ -29,7 +29,9 @@ const AudioTimer: React.FC = () => {
     }
   }, [hasReset]);
 
-  return <span className="text-[#777E90]">{formatTime(recordTime)}</span>;
+  return (
+    <span className="text-[#777E90] text-sm">{formatTime(recordTime)}</span>
+  );
 };
 
 export default AudioTimer;

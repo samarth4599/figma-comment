@@ -1,5 +1,6 @@
 import { FlagIcon } from "@heroicons/react/24/outline";
 import { TSelectables } from "./types";
+import { UserCircleIcon } from "@heroicons/react/16/solid";
 
 export const priorities: TSelectables[] = [
   {
@@ -19,5 +20,26 @@ export const priorities: TSelectables[] = [
     name: "P2",
     LeftIcon: FlagIcon,
     leftIconColor: "#80808A",
+  },
+];
+
+export const mentions: TSelectables[] = [
+  {
+    id: "1",
+    name: "Kate Petrokhalko",
+    LeftIcon: UserCircleIcon,
+    leftIconColor: "red",
+  },
+  {
+    id: "2",
+    name: "Kate Petrokhalko",
+    LeftIcon: UserCircleIcon,
+    leftIconColor: "green",
+  },
+  {
+    id: "3",
+    name: "Kate Petrokhalko",
+    LeftIcon: UserCircleIcon,
+    leftIconColor: "blue",
   },
 ];
