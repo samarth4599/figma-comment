@@ -1,6 +1,8 @@
 import ThemeToggle from "@/components/atoms/ThemeToggle";
 import UserPin from "@/components/atoms/UserPin";
+import AudioRecorder from "@/components/elements/AudioRecorder";
 import FigmaBox from "@/components/molecules/FigmaBox";
+import { AudioRecorderProvider } from "@/providers/audioProvider";
 
 export default function Home() {
   return (
@@ -14,7 +16,10 @@ export default function Home() {
         </aside>
       </header>
       {/* <UserPin /> */}
-      <FigmaBox />
+      {/* <FigmaBox /> */}
+      <AudioRecorderProvider>
+        <AudioRecorder />
+      </AudioRecorderProvider>
     </main>
   );
 }
