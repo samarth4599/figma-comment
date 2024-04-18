@@ -1,7 +1,7 @@
 "use client";
 import { useAudioRecorder } from "@/providers/audioProvider";
 import React, { useEffect, useMemo, useState } from "react";
-import WaveMultiple from "../WaveMultiple";
+import WaveMultiple from "../../atoms/WaveMultiple";
 import { IAudioWaveProps } from "./types";
 
 const AudioWave: React.FC<IAudioWaveProps> = ({

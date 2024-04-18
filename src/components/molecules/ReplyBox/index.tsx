@@ -1,11 +1,12 @@
 "use client";
 
-import TextArea from "@/components/atoms/TextArea";
-import React, { useEffect, useMemo, useState } from "react";
-import SelectableList from "../SelectableList";
-import { mentions } from "@/constants";
-import { TSelectables } from "@/types";
 import Divider from "@/components/atoms/Divider";
+import SendButton from "@/components/atoms/SendButton";
+import TextArea from "@/components/atoms/TextArea";
+import { mentions } from "@/constants";
+import { useAudioRecorder } from "@/providers/audioProvider";
+import { useAudioMessage } from "@/providers/messageProvider";
+import { TSelectables } from "@/types";
 import {
   ComputerDesktopIcon,
   FaceSmileIcon,
@@ -13,10 +14,9 @@ import {
   PaperClipIcon,
   VideoCameraIcon,
 } from "@heroicons/react/24/outline";
-import AudioRecorder from "../AudioRecorder";
-import { useAudioRecorder } from "@/providers/audioProvider";
-import SendButton from "@/components/atoms/SendButton";
-import { useAudioMessage } from "@/providers/messageProvider";
+import { useEffect, useState } from "react";
+import AudioRecorder from "../../elements/AudioRecorder";
+import SelectableList from "../../atoms/SelectableList";
 
 const ReplyBox = (style?: any) => {
   const [text, setText] = useState<string>("");

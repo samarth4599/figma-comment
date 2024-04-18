@@ -3,7 +3,7 @@ import AudioCancel from "@/components/atoms/AudioCancel";
 import AudioPlay from "@/components/atoms/AudioPlay";
 import AudioSave from "@/components/atoms/AudioSave";
 import AudioTimer from "@/components/atoms/AudioTimer";
-import AudioWave from "@/components/atoms/AudioWave";
+import AudioWave from "@/components/elements/AudioWave";
 import { useAudioRecorder } from "@/providers/audioProvider";
 import React from "react";
 

@@ -3,7 +3,7 @@ import { ComputerDesktopIcon } from "@heroicons/react/24/outline";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import { IMessageBoxProps } from "./types";
-import AudioSpeaker from "../AudioSpeaker";
+import AudioSpeaker from "../../elements/AudioSpeaker";
 
 const MessageBox: React.FC<IMessageBoxProps> = ({ message, style }) => {
   return (

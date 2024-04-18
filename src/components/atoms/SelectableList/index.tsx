@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { ISelectableList } from "./types";
 
 const SelectableList: React.FC<ISelectableList> = ({

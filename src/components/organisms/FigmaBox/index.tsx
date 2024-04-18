@@ -1,9 +1,9 @@
 "use client";
 import Divider from "@/components/atoms/Divider";
-import MessageBox from "@/components/elements/MessageBox";
+import MessageBox from "@/components/molecules/MessageBox";
 import PriorityStatus from "@/components/elements/PriorityStatus";
 import ProgressStatus from "@/components/elements/ProgressStatus";
-import ReplyBox from "@/components/elements/ReplyBox";
+import ReplyBox from "@/components/molecules/ReplyBox";
 import { useAudioMessage } from "@/providers/messageProvider";
 import { CheckIcon, EllipsisHorizontalIcon } from "@heroicons/react/16/solid";
 import {

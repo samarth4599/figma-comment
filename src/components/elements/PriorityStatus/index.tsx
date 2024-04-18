@@ -1,7 +1,7 @@
 "use client";
 import { FlagIcon } from "@heroicons/react/24/outline";
 import React, { useMemo, useState } from "react";
-import SelectableList from "../SelectableList";
+import SelectableList from "../../atoms/SelectableList";
 import { priorities } from "@/constants";
 import { TSelectables } from "@/types";
 import { useTheme } from "next-themes";
