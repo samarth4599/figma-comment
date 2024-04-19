@@ -5,10 +5,34 @@ import AudioSave from "@/components/atoms/AudioSave";
 import AudioTimer from "@/components/atoms/AudioTimer";
 import AudioWave from "@/components/elements/AudioWave";
 import { useAudioRecorder } from "@/providers/audioProvider";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const AudioRecorder: React.FC<{ style?: any }> = ({ style }) => {
-  const { recording, audioChunks } = useAudioRecorder();
+  const [recordTime, setRecordTime] = useState<number>(0);
+  const { recording, hasReset, startRecording } = useAudioRecorder();
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout | null = null;
+
+    if (recording) {
+      timer = setInterval(() => {
+        setRecordTime((prev) => prev + 1);
+      }, 1000);
+    } else {
+      clearInterval(timer!);
+    }
+
+    return () => {
+      clearInterval(timer!);
+    };
+  }, [recording]);
+
+  useEffect(() => {
+    if (hasReset) {
+      setRecordTime(0);
+    }
+  }, [hasReset]);
+
   return (
     <div
       style={style}
@@ -17,10 +41,10 @@ const AudioRecorder: React.FC<{ style?: any }> = ({ style }) => {
       {recording ? (
         <AudioCancel icon="cross" />
       ) : (
-        <AudioPlay audioChunks={audioChunks} />
+        <AudioPlay callback={startRecording} />
       )}
       <AudioWave pills={25} />
-      <AudioTimer />
+      <AudioTimer recordTime={recordTime} />
       {recording ? <AudioSave /> : <AudioCancel icon="delete" />}
     </div>
   );

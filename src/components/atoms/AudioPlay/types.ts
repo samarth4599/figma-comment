@@ -1,4 +1,4 @@
 export interface IAudioPlayProps {
-  audioChunks: Blob[];
+  callback: () => void;
   style?: any;
 }
