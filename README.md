@@ -41,7 +41,7 @@ Explore the project on [GitHub](https://github.com/samarth4599/figma-comment) or
 
 Checkout the demo video on YouTube
 
-[![Demo](https://img.youtube.com/vi/h9JO15oJHE4/0.jpg)](https://www.youtube.com/watch?v=h9JO15oJHE4)
+[![Demo](https://img.youtube.com/vi/H_iTISbjUJg/0.jpg)](https://www.youtube.com/watch?v=H_iTISbjUJg)
 
 # Screenshots 😎
 
