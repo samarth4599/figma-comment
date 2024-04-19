@@ -27,18 +27,21 @@ export const mentions: TSelectables[] = [
   {
     id: "1",
     name: "Kate Petrokhalko",
+    sub: "KatePetrkhalko@gmail.com",
     LeftIcon: UserCircleIcon,
     leftIconColor: "red",
   },
   {
     id: "2",
     name: "Kate Petrokhalko",
+    sub: "KatePetrkhalko@gmail.com",
     LeftIcon: UserCircleIcon,
     leftIconColor: "green",
   },
   {
     id: "3",
     name: "Kate Petrokhalko",
+    sub: "KatePetrkhalko@gmail.com",
     LeftIcon: UserCircleIcon,
     leftIconColor: "blue",
   },

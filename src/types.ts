@@ -1,6 +1,7 @@
 export type TSelectables = {
   id: string;
   name: string;
+  sub?: string;
   leftIconColor: string;
   LeftIcon: any;
 };

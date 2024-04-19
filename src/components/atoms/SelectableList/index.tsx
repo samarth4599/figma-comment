@@ -32,11 +32,11 @@ const SelectableList: React.FC<ISelectableList> = ({
     <div
       style={style}
       ref={toggleRef}
-      className="flex flex-col items-start w-48 border border-[#E6E8EC] dark:border-[#303034] bg-white dark:bg-[#141416] rounded-xl p-2 gap-3"
+      className="flex flex-col items-start min-w-48 border border-[#E6E8EC] dark:border-[#303034] bg-white dark:bg-[#141416] rounded-xl p-3 gap-3 shadow-md"
     >
       {items.map((item) => (
         <button
-          className=" text-black dark:text-[#91919C] flex gap-2  items-center w-full"
+          className=" text-black dark:text-[#91919C] flex gap-2 w-full"
           key={item.id}
           onClick={() => setSelectedItem(item)}
         >
@@ -44,7 +44,10 @@ const SelectableList: React.FC<ISelectableList> = ({
             style={{ color: item.leftIconColor }}
             className=" h-5 w-5"
           />
-          {item.name}
+          <div className="flex flex-col w-full">
+            <span className=" text-left">{item.name}</span>
+            <span className="text-[#777E90]">{item.sub}</span>
+          </div>
         </button>
       ))}
     </div>
